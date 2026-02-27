@@ -23,12 +23,12 @@ class ProfileController extends Controller
 
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
-        $avatarPath = $this->uploadImage($request, 'avatar');
-        $bannerPath = $this->uploadImage($request, 'banner');
+        $avatarPath = $this->uploadImage($request, 'avatar', $request->old_avatar);
+        $bannerPath = $this->uploadImage($request, 'banner', $request->old_banner);
 
         $user = Auth::user();
-        $user->avatar = !empty($avatarPath) ? $avatarPath : '';
-        $user->banner = !empty($bannerPath) ? $bannerPath : '';
+        $user->avatar = !empty($avatarPath) ? $avatarPath : $request->old_avatar;
+        $user->banner = !empty($bannerPath) ? $bannerPath : $request->old_banner;
         $user->name = $request->name;
         $user->email = $request->email;
         $user->phone = $request->phone;
@@ -42,6 +42,7 @@ class ProfileController extends Controller
         $user->insta_link = $request->insta_link;
         $user->save();
 
+        toastr()->success('Profile updated successfully');
         return redirect()->back();
     }
 }

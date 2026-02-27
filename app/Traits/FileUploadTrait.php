@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 trait FileUploadTrait
 {
-    function uploadImage(Request $request, string $inputName, string $oldPath = null, string $path = '/uploads'): ?string
+    function uploadImage(Request $request, string $inputName, ?string $oldPath = null, string $path = '/uploads'): ?string
     {
         if ($request->hasFile($inputName)) {
             $image = $request->{$inputName};
@@ -16,7 +16,9 @@ trait FileUploadTrait
             $image->move(public_path($path), $imageName);
 
             // Delete previous image if exists
-            if ($oldPath && file_exists(public_path($oldPath))) {
+            $excludedFolder = '/default';
+
+            if ($oldPath && file_exists(public_path($oldPath)) && strpos($oldPath, $excludedFolder) !== 0) {
                 unlink(public_path($oldPath));
             }
             return $path . '/' . $imageName;
