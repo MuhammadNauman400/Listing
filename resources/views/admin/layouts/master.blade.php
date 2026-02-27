@@ -64,10 +64,6 @@
             @endforeach
            
         @endif
-
-        @if (Session::has('error'))
-            toastr.error("{{ Session::get('error') }}");
-        @endif
     </script>
  
     @stack('scripts')
