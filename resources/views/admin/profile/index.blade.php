@@ -51,28 +51,32 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="">Name <span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" name="name" value="{{ $user->name }}" required>
+                                            <input type="text" class="form-control" name="name"
+                                                value="{{ $user->name }}" required>
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="">Email <span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" name="email" value="{{ $user->email }}" required>
+                                            <input type="text" class="form-control" name="email"
+                                                value="{{ $user->email }}" required>
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="">Phone <span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" name="phone" value="{{ $user->phone }}" required>
+                                            <input type="text" class="form-control" name="phone"
+                                                value="{{ $user->phone }}" required>
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="">Address <span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" name="address" value="{{ $user->address }}" required>
+                                            <input type="text" class="form-control" name="address"
+                                                value="{{ $user->address }}" required>
                                         </div>
                                     </div>
 
@@ -86,42 +90,48 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="">Website</label>
-                                            <input type="text" class="form-control" name="website" value="{{ $user->website }}">
+                                            <input type="text" class="form-control" name="website"
+                                                value="{{ $user->website }}">
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="">Facebook</label>
-                                            <input type="text" class="form-control" name="fb_link" value="{{ $user->fb_link }}">
+                                            <input type="text" class="form-control" name="fb_link"
+                                                value="{{ $user->fb_link }}">
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="">X</label>
-                                            <input type="text" class="form-control" name="x_link" value="{{ $user->x_link }}">
+                                            <input type="text" class="form-control" name="x_link"
+                                                value="{{ $user->x_link }}">
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="">Linkedin</label>
-                                            <input type="text" class="form-control" name="in_link" value="{{ $user->in_link }}">
+                                            <input type="text" class="form-control" name="in_link"
+                                                value="{{ $user->in_link }}">
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="">WhatsApp</label>
-                                            <input type="text" class="form-control" name="wa_link" value="{{ $user->wa_link }}">
+                                            <input type="text" class="form-control" name="wa_link"
+                                                value="{{ $user->wa_link }}">
                                         </div>
                                     </div>
-                                    
+
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="">Instagram</label>
-                                            <input type="text" class="form-control" name="insta_link" value="{{ $user->insta_link }}">
+                                            <input type="text" class="form-control" name="insta_link"
+                                                value="{{ $user->insta_link }}">
                                         </div>
                                     </div>
 
@@ -137,14 +147,53 @@
                     </div>
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Update Password</h4>
+                        </div>
+                        <div class="card-body">
+                            <form action="{{ route('admin.profile-password.update') }}" method="POST"
+                                enctype="multipart/form-data">
+                                @csrf
+                                @method('PUT')
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="">Password <span class="text-danger">*</span></label>
+                                            <input type="password" class="form-control" name="password" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="">Confirm Password <span class="text-danger">*</span></label>
+                                            <input type="password" class="form-control" name="password_confirmation" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                           <button type="submit" class="btn btn-primary">Update Password</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 @endsection
 
 @push('scripts')
     <script>
-
-        $(document).ready(function(){
+        $(document).ready(function() {
             $('.avatar-preview').css({
                 'background-image': 'url({{ asset($user->avatar) }})',
                 'background-size': 'cover',
@@ -157,7 +206,7 @@
                 'background-position': 'center center'
             });
         })
-       
+
 
         $.uploadPreview({
             input_field: "#image-upload", // Default: .image-upload

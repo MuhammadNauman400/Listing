@@ -19,5 +19,6 @@ Route::middleware(['auth', 'user.type:admin'])
         // Profile Routes
         Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
         Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
+        Route::put('/profile-password', [ProfileController::class, 'passwordUpdate'])->name('profile-password.update');
 
     });
