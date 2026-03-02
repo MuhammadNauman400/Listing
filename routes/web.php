@@ -2,13 +2,13 @@
 
 use App\Http\Controllers\Frontend\DashboardController;
 use App\Http\Controllers\Frontend\FrontendController;
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Frontend\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 
 
 
-Route::get('/',[FrontendController::class,'index'])->name('home');
+Route::get('/', [FrontendController::class, 'index'])->name('home');
 
 
 Route::middleware('auth')->group(function () {
@@ -22,7 +22,8 @@ Route::middleware(['auth'])
     ->name('user.')
     ->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-
+        Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
+        Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
     });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
