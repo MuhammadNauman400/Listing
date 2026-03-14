@@ -18,13 +18,13 @@
         </div>
     </div>
     <!--==========================
-                BREADCRUMB PART END
-            ===========================-->
+        BREADCRUMB PART END
+    ===========================-->
 
 
     <!--=========================
-                SIGN IN START
-            ==========================-->
+        SIGN IN START
+     ==========================-->
     <section class="wsus__login_page">
         <div class="container">
             <div class="row">
@@ -38,7 +38,8 @@
                                 <div class="col-xl-12">
                                     <div class="wsus__login_imput">
                                         <label>email</label>
-                                        <input type="email" placeholder="Email" name="email" value="{{ old('email') }}" required>
+                                        <input type="email" placeholder="Email" name="email" value="{{ old('email') }}"
+                                            required>
                                     </div>
                                 </div>
 
@@ -75,7 +76,8 @@
                             <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                             <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
                         </ul> --}}
-                        <p class="create_account">Dont’t have an aceount ? <a href="{{ route('register') }}">Create Account</a></p>
+                        <p class="create_account">Dont’t have an aceount ? <a href="{{ route('register') }}">Create
+                                Account</a></p>
                     </div>
                 </div>
             </div>
