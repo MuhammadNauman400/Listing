@@ -167,17 +167,19 @@
                                             <input type="password" class="form-control" name="password" required>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="">Confirm Password <span class="text-danger">*</span></label>
-                                            <input type="password" class="form-control" name="password_confirmation" required>
+                                            <label for="">Confirm Password <span
+                                                    class="text-danger">*</span></label>
+                                            <input type="password" class="form-control" name="password_confirmation"
+                                                required>
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                           <button type="submit" class="btn btn-primary">Update Password</button>
+                                            <button type="submit" class="btn btn-primary">Update Password</button>
                                         </div>
                                     </div>
                                 </div>
