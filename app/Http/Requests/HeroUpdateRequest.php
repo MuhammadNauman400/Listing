@@ -14,7 +14,7 @@ class HeroUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'background' => ['nullable', 'image', 'max:300'],
+            'background' => ['nullable', 'image', 'max:3000'],
             'title' => ['required', 'max:255'],
             'sub_title' => ['required', 'max:255'],
         ];
