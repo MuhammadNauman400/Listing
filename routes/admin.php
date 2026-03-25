@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminAuthController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Admin\ProfileController;
@@ -25,5 +26,8 @@ Route::middleware(['auth', 'user.type:admin'])
         // Hero Routes
         Route::get('/hero', [HeroController::class, 'index'])->name('hero.index');
         Route::put('/hero', [HeroController::class, 'update'])->name('hero.update');
+
+        // Category Routes
+        Route::resource('/category', CategoryController::class);
 
     });
